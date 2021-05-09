@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer, min=Number.MAX_SAFE_INTEGER;
+                arr.forEach(idx=>{
+                    if(arr[idx]<min) min=arr[idx];
+                })
+                answer=min;
+                return answer;
+            }
+
+            let arr=[5, 7, 1, 3, 2, 9, 11];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!--Number.MAX_SAFE_INTEGER 제일 큰 정수
+Math.min(arr)는 object하나로 인식하여서 값을 구해주지 않는다.
+Math.min(...arr)과 같은 스프레드 연산자를 통해 넣어 주어야 한다.
+혹은 배열의 forEach 메서드를 이용해서 구할 수 있다.
+-->

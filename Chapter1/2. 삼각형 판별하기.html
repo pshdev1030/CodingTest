@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer="YES", max;
+                max=Math.max(a,b,c);
+                console.log(max);
+                if(b+c<=a) answer="NO";
+
+                return answer;
+            }
+
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>
+
+<!--가장 긴 변의 길이 < 나머지 두 변의 길이-->
