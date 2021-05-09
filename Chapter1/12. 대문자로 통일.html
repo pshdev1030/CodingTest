@@ -7,8 +7,11 @@
         <script>
             function solution(s){         
                 let answer="";
+                for (value of s){
+                    if(value!==value.toUpperCase()) answer+=value.toUpperCase();
+                    else answer+=value;
+                }
                 return answer;
-
             }
 
             let str="ItisTimeToStudy";
