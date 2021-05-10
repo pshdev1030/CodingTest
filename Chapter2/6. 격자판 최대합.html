@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function colsum(arr){
+             let answer= arr.reduce((sum,val)=>{
+                    return sum+=val;
+                },0);
+                return answer;
+            }
+
+            function rowsum(arr,index,length){
+                let answer=0;
+                    for(let i=0;i<length;i++){
+                        answer+=arr[i][index];
+                    }
+                return answer;
+            }
+
+            function solution(arr){  
+                let answer=Number.MIN_SAFE_INTEGER; 
+                let n=arr.length;
+
+                for(let i=0;i<n;i++){
+                    if(answer<colsum(arr[i])) answer=colsum(arr[i]);
+                }
+
+                for(i=0;i<n;i++){
+                    if(answer<rowsum(arr,i,arr.lnegth)) answer=rowsum(arr,i,arr.length);
+                }
+
+                let tmp=0,tmp2=0;
+                for(i=0;i<n;i++){
+                    for(let j=0;j<n;j++){
+                        if(i==j) tmp+=arr[i][j];
+                        if(i+j==arr.length) tmp2+=arr[i][j];
+                    }
+                }                
+                if(tmp>answer) answer=tmp;
+                    if(tmp2>answer) answer=tmp;
+                return answer;
+            }
+
+            let arr=[[10, 13, 10, 12, 15], 
+                     [12, 39, 30, 23, 11],
+                     [11, 25, 50, 53, 15],
+                     [19, 27, 29, 37, 27],
+                     [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+<!--반환값은 누산기에 할당
+reduce안에서의 반환값이 sum에 할당됨. 클로저의 원리를 이용할 수 있따.-->
