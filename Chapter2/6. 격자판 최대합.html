@@ -34,10 +34,8 @@
 
                 let tmp=0,tmp2=0;
                 for(i=0;i<n;i++){
-                    for(let j=0;j<n;j++){
-                        if(i==j) tmp+=arr[i][j];
-                        if(i+j==arr.length-1) tmp2+=arr[i][j];
-                    }
+                        tmp+=arr[i][i];
+                        tmp2+=arr[i][arr.length-1-i];
                 }                
                 if(tmp>answer) answer=tmp;
                     if(tmp2>answer) answer=tmp;
