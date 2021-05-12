@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function isPrime(num){
+                if(num<2){
+                    return false;
+                }
+                for(let i=2;i<Math.sqrt(num);i++){
+                    if(num%i===0) return false;
+                }
+                return true;
+            }
+            function solution(arr){
+                let answer=[];
+                for(val of arr){
+                let tmp=Number(val.toString().split('').reverse().join(''));
+                if(isPrime(tmp)) answer.push(tmp);
+                }
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            let a='aasdf';
+            
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- join(separator) 모든 요소 연결해 하나의 문자열 separator의 기본값은 ,이다.
+    toString 요소를 쉼표로 구분하여 하나의 문자열로 반환 
+    ParseInt string to number 문자열이 아니면 문자열로 변환후 연산
+-->
+
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function isPrime(num){
+                if(num===1) return false;
+                for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+                    if(num%i===0) return false;
+                }
+                return true;
+            }
+            function solution(arr){
+                let answer=[];
+                for(let x of arr){
+                    let res=0;
+                    while(x){
+                        let t=x%10;
+                        res=res*10+t;
+                        x=parseInt(x/10);
+                    }
+                    if(isPrime(res)) answer.push(res);
+                }
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function isPrime(num){
+                if(num===1) return false;
+                for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+                    if(num%i===0) return false;
+                }
+                return true;
+            }
+            function solution(arr){
+                let answer=[];
+                for(let x of arr){
+                    let res=Number(x.toString().split('').reverse().join(''));
+                    if(isPrime(res)) answer.push(res);
+                }
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- 소수판별 나왔음 루트n까지 나눠지는지 확인 -->
