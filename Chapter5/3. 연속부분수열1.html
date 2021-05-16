@@ -6,15 +6,16 @@
     <body>
         <script>
             function solution(m, arr){
-                let answer=0, lt=0, sum=0;
-                for(let rt=0; rt<arr.length; rt++){
-                    sum+=arr[rt];
-                    if(sum===m) answer++;
-                    while(sum>=m){
-                        sum-=arr[lt++];
-                        if(sum===m) answer++;       
+                let n=arr.length;
+                let answer=sum=j=0;
+                   for(let i=0;i<n;i++){
+                        sum+=arr[i];
+                        if(sum===m) answer++;
+                        while(sum>=6){
+                        sum-=arr[j++];
+                        if(sum===m) answer++;
                     }
-                }        
+                   }
                 return answer;
             }
             
@@ -23,3 +24,5 @@
         </script>
     </body>
 </html>
+
+<!-- 투포인터 하나 고정해두고 하나만 움직임 -->
