@@ -6,9 +6,13 @@
     <body>
         <script>
             function solution(m, arr){
-                let answer=sum=j=j=0;
+                let answer=sum=j=0;
                 for(let i=0;i<arr.length;i++){
-                    
+                    sum+=arr[i];
+                    while(sum>m){
+                        sum-=arr[j++];
+                    }
+                    answer+=(i-j+1);
                 }
                 return answer;
             }
@@ -18,3 +22,6 @@
         </script>
     </body>
 </html>
+<!-- 자기가 포함된 것들만 더하기
+새로 업데이트 될때의 값만 업데이트하기
+이걸 누적하면 최종합 -->
