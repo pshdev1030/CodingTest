@@ -7,15 +7,17 @@
         <script>
             function solution(s){  
                 let answer;
-                let sH = new Map();
+                let sh=new Map();
                 for(let x of s){
-                    if(sH.has(x)) sH.set(x, sH.get(x)+1);
-                    else sH.set(x, 1);
+                    if(sh.get(x)){
+                        sh.set(x,sh.get(x)+1);
+                    }
+                    else sh.set(x,1);
                 }
                 let max=Number.MIN_SAFE_INTEGER;
-                for(let [key, val] of sH){
-                    if(val>max){
-                        max=val;
+                for(let [key,value]of sh){
+                    if(value>max){
+                        max=value;
                         answer=key;
                     }
                 }
@@ -27,3 +29,13 @@
         </script>
     </body>
 </html>
+
+<!-- 맵 key value를 저장하는 자료구조 
+===해시 저장에 적합
+let sh=new Map();
+sh.set(key,value);
+sh.get(key) =기존 값 가져오기
+sh.has(key) 해당 key 존재?
+sh.set(key,sh.get(key)+1);기존 값 가져와서 증가
+sh도 객체라 for of사용 가능
+-->
