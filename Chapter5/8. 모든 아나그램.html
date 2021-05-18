@@ -5,34 +5,42 @@
     </head>
     <body>
         <script>
+            let jj=0;
             function compareMaps(map1, map2){
-                if(map1.size!==map2.size) return false;
-                for(let [key, val] of map1){
-                    if(!map2.has(key) || map2.get(key)!==val) return false;
+                console.log(jj++);
+                for([key,value] of map2){
+                    if(!map1.get(key)===value) return false;
                 }
                 return true;
             }
-            function solution(s, t){
-                let answer=0;
-                let tH = new Map();
-                let sH = new Map();
-                for(let x of t){
-                    if(tH.has(x)) tH.set(x, tH.get(x)+1);
-                    else tH.set(x, 1);
-                }
-                let len=t.length-1;
-                for(let i=0; i<len; i++){
-                    if(sH.has(s[i])) sH.set(s[i], sH.get(s[i])+1);
-                    else sH.set(s[i], 1);
-                }
-                let lt=0;
-                for(let rt=len; rt<s.length; rt++){
-                    if(sH.has(s[rt])) sH.set(s[rt], sH.get(s[rt])+1);
-                    else sH.set(s[rt], 1);
-                    if(compareMaps(sH, tH)) answer++;
-                    sH.set(s[lt], sH.get(s[lt])-1);
-                    if(sH.get(s[lt])===0) sH.delete(s[lt]);
-                    lt++;
+            // 맵끼리 비교하는 함수
+            function solution(a,b){
+                let sha=new Map();
+                let shb=new Map();
+                let i=answer=lt=0;
+                if(a.length<b.length) return 0;
+                else{
+                    for(i=0;i<b.length;i++){
+                        if(sha.has(a[i])) sha.set(a[i],sha.get(a[i])+1);
+                        else sha.set(a[i],1);
+
+                        if(shb.has(b[i])) shb.set(b[i],shb.get(b[i])+1);
+                        else shb.set(b[i],1);
+                    }
+
+                    if(compareMaps(sha,shb)) answer++;
+
+                    for(let k=i;k<a.length;k++){
+
+                        if(sha.has(a[k])) sha.set(a[k],sha.get(a[k])+1);
+                        else sha.set(a[k],1);
+
+                        while(!compareMaps(sha,shb)){
+                            sha.set(a[k-lt],sha.get(a[k-lt])-1);
+                            lt++;
+                        };
+                        if(compareMaps(sha,shb)) answer++;
+                    }
                 }
                 return answer;
             }
@@ -43,3 +51,4 @@
         </script>
     </body>
 </html>
+<!-- 부분문자열 부분합= 투포인터 -->
