@@ -7,14 +7,32 @@
         <script>
             function solution(str1, str2){
                 let answer="YES"; 
-                let sH = new Map();
-                for(let x of str1){
-                    if(sH.has(x)) sH.set(x, sH.get(x)+1);
-                    else sH.set(x, 1);
-                }
-                for(let x of str2){
-                    if(!sH.has(x) || sH.get(x)==0) return "NO";
-                    sH.set(x, sH.get(x)-1);
+                if(str1.length!==str2.length) return "NO";
+                else{
+                    let n=str1.length;
+                    let sh1=new Map();
+                    let sh2=new Map();
+                    for(let i=0;i<n;i++){
+                        if(sh1.has(str1[i])){
+                            sh1.set(str1[i],sh1.get(str1[i])+1);
+                        }
+                        else{
+                            sh1.set(str1[i],1);
+                        }
+                        
+                    }
+                    for(let j=0;j<n;j++){
+                        if(sh2.has(str2[j])){
+                            sh2.set(str2[j],sh2.get(str2[j])+1);
+                        }
+                        else{
+                            sh2.set(str2[j],1);
+                        }
+
+                    }
+                    for(let [key,value] of sh1){
+                        if(sh2.get(key)!==value) return "NO";
+                    }
                 }
                 return answer;
             }
@@ -25,3 +43,18 @@
         </script>
     </body>
 </html>
+
+
+<!-- let SH=new Map();
+for(let x of str1){
+    if (sH.has(x))sH.set(x,sH.get(x)+1);
+    else sH.set(x,1);
+}
+for(let x of str2){
+    if(!sH.has(x)||sH.get(x)===0) return "NO";
+}
+str1을 넣고 2를 대입하며 확인
+sH에 이미 있는지 확인 없으면 NO 반환
+
+return answer;
+} -->
