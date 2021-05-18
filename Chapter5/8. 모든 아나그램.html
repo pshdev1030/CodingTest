@@ -6,6 +6,8 @@
     <body>
         <script>
             function compareMaps(map1, map2){
+                if(map1.size!==map2.size) return false;
+                // size가 다를경우 false리턴
                 for([key,value] of map2){
                     if(!map1.has(key)||map1.get(key)!==value) return false;
                 }
