@@ -5,19 +5,16 @@
     </head>
     <body>
         <script>
-            let jj=0;
             function compareMaps(map1, map2){
-                console.log(jj++);
                 for([key,value] of map2){
-                    if(!map1.get(key)===value) return false;
+                    if(!map1.has(key)||map1.get(key)!==value) return false;
                 }
                 return true;
             }
-            // 맵끼리 비교하는 함수
             function solution(a,b){
                 let sha=new Map();
                 let shb=new Map();
-                let i=answer=lt=0;
+                let i=answer=0;
                 if(a.length<b.length) return 0;
                 else{
                     for(i=0;i<b.length;i++){
@@ -29,16 +26,13 @@
                     }
 
                     if(compareMaps(sha,shb)) answer++;
-
                     for(let k=i;k<a.length;k++){
-
+                        sha.set(a[k-i],sha.get(a[k-1])-1);
+                        if(sha.get(a[k-i])===0) sha.delete(a[k-i]);
+                        
                         if(sha.has(a[k])) sha.set(a[k],sha.get(a[k])+1);
                         else sha.set(a[k],1);
 
-                        while(!compareMaps(sha,shb)){
-                            sha.set(a[k-lt],sha.get(a[k-lt])-1);
-                            lt++;
-                        };
                         if(compareMaps(sha,shb)) answer++;
                     }
                 }
@@ -51,4 +45,6 @@
         </script>
     </body>
 </html>
-<!-- 부분문자열 부분합= 투포인터 -->
+<!-- 부분문자열 부분합= 투포인터 
+map에서 키를 꼭 제거해주기,,,
+키를 제거 안해주고 함수에서 map.has로 비교하니까 허술했다. -->
