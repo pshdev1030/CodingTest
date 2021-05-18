@@ -12,9 +12,9 @@
                     sum+=arr[i];
                 }
                 answer=sum;
-                for(j=k,i=0;j<n;j++,i++){
-                    answer=Math.max(sum,sum+arr[j]-arr[i]);
-                    sum=sum+arr[j]-arr[i];
+                for(j=k;j<n;j++){
+                    sum=sum+arr[j]-arr[j-k];
+                    answer=Math.max(answer,sum);
                 }
 
 
@@ -26,4 +26,7 @@
         </script>
     </body>
 </html>
-<!-- slidingWindow -->
+<!-- slidingWindow 
+    크기를 고정해두고 한칸씩 옆으로 밈
+    k 고정해두고 현재 인덱스에서 k를 뺌
+-->
