@@ -10,9 +10,11 @@
                 for(let i=0;i<s.length;i++){
                     if(s[i]==='(') arr.push(s[i]);
                     else{
-                        if(!arr.pop()==='(') return "NO";
+                        if(arr.length===0) return "NO";
+                        arr.pop();
                     }
                 }
+                if(arr.length!==0) return "NO";
                 return "YES";
             }
             
@@ -21,3 +23,4 @@
         </script>
     </body>
 </html>
+<!-- 빈공간 pop하면 undefined -->

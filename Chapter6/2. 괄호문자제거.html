@@ -5,7 +5,19 @@
     </head>
     <body>
         <script>
-            function solution(s){  
+            function solution(s){
+                let answer='';
+                let stack=[];
+                for(let i=0;i<s.length;i++) {
+                    if(s[i]===')'){
+                        while(stack[stack.length-1]!=='('){
+                            stack.pop();
+                        };
+                        stack.pop();
+                    }
+                    else stack.push(s[i]);
+                }
+                return stack;
             }
 
             let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";
