@@ -6,11 +6,22 @@
     <body>
         <script>
             function solution(need, plan){
+                let stack=[];
+                for(let i=0;i<plan.length;i++){
+                    if(need.indexOf(plan[i])!==-1) stack.push(plan[i]);
+                    if(need.length===stack.length) break;
+                }
+                if(need===stack.join('')) return "YES";
+                else return "NO";
             }
 
             let a="CBA";
+            a.search
             let b="CBDAGE";
             console.log(solution(a, b));
         </script>
     </body>
 </html>
+<!-- 문자열 검색은 indexof 거짓일경우 -1반환하므로 조건문에서 쓸때는 !==-1로 해줘야됨
+string.search는 정규식
+배열에서 있는지 없는지 검색은 includes(value)-->
