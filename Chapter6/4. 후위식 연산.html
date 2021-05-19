@@ -5,11 +5,28 @@
     </head>
     <body>
         <script>
-            function solution(s){  
+            function solution(s){
+                let stack=[];
+                let answer=0;
+                for(let i=0;i<s.length;i++){
+                    if(!isNaN(s[i])) stack.push(Number(s[i]));
+                    else{
+                        let a=stack.pop();
+                        let b=stack.pop();
+                        if(s[i]==='+') stack.push(b+a);
+                        if(s[i]==='-') stack.push(b-a);
+                        if(s[i]==='*') stack.push(b*a);
+                        if(s[i]==='/') stack.push(b/a);
+                    }         
+                }
+            answer=stack[0];
+            return answer;
             }
 
             let str="352+*9-";
+            str.eval
             console.log(solution(str));
         </script>
     </body>
 </html>
+<!--eval(문자열) 문자열을 계산한 결과를 반환-->
