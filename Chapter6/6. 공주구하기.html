@@ -6,9 +6,20 @@
     <body>
         <script>
             function solution(n, k){
+                let queue=[];
+                for(let i=1;i<=n;i++){
+                    queue.push(i);
+                }
+                for(let j=1;queue.length!==1;j=j%k+1){
+                    if(j===k) queue.shift();
+                    else queue.push(queue.shift());                        
+                }
+                return queue.shift();
             }
-
+            
             console.log(solution(8, 3));
         </script>
     </body>
 </html>
+<!-- 원형 
+push, shift-->
