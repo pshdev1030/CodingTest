@@ -17,7 +17,10 @@
                     }
                     else stack.push(s[i]);
                 }
-                return stack;
+                for(let i=0;i<stack.length;i++){
+                    answer+=stack[i];
+                }
+                return answer;
             }
 
             let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";
