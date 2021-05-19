@@ -6,10 +6,31 @@
     <body>
         <script>
             function solution(s){
+                let stack=[];
+                let answer=0;
+                for(let i=0;i<s.length;i++){
+                    if(s[i]===')') {
+                        stack.pop();
+                        if(s[i-1]==='('){
+                            answer+=stack.length;
+                        }
+                        else{
+                            answer++;
+                        }
+                    }
+                    else{
+                        stack.push(s[i]);
+                    }
+                }
+                return answer;
             }
             
-            let a="()(((()())(())()))(())";
-            console.log(solution(a));
+            //let a="()(((()())(())()))(())";
+            // console.log(solution(a));
+            let b="(((()(()()))(())()))(()())";
+            console.log(solution(b));
         </script>
     </body>
 </html>
+<!-- peek 보여주기만 
+for문은 왠만해서 for of x 보다 i로 풀어쓰는게 나은듯 index에 접근하기 편한-->
