@@ -11,7 +11,7 @@
                     let index=-1;
                     for(let j=i;j<arr.length;j++){
                         if(min>arr[j]){
-                            min=arr[j];
+                            min=j;
                             index=j;
                         }
                         if(j==arr.length-1){
@@ -29,3 +29,4 @@
         </script>
     </body>
 </html>
+<!-- [arr[i],arr[idx]]=[arr[idx],arr[i]] -->
