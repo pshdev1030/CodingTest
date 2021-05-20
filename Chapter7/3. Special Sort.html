@@ -1,3 +1,33 @@
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let mque=[];
+                let pque=[];
+                let answer=[];
+                for(let i=0;i<arr.length;i++){
+                    if(arr[i]<0) mque.push(arr[i]);
+                    if(arr[i]>0) pque.push(arr[i]);
+                }
+                while(mque.length!==0)  answer.push(mque.shift());
+                while(pque.length!==0) answer.push(pque.shift());
+
+                return answer.join(' ');
+            }
+
+            let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+<!-- 한번 탐색하면서 음수 모두 푸쉬하고 다시 한번 탐색하면서 양수 한번 푸쉬해도 됨-->
+
+
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -6,7 +36,13 @@
     <body>
         <script>
             function solution(arr){
-
+                let answer=arr;
+                for(let i=0;i<arr.length-1;i++){
+                    for(let j=0;j<arr.length-i-1;j++){
+                        if(arr[j]>0&&arr[j+1]<0) [arr[j],arr[j+1]]=[arr[j+1],arr[j]];
+                    } 
+                }
+                return answer.join(' ');
             }
 
             let arr=[1, 2, 3, -3, -2, 5, 6, -6];
@@ -14,22 +50,4 @@
         </script>
     </body>
 </html>
-
-
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(arr){
-
-            }
-
-            let arr=[1, 2, 3, -3, -2, 5, 6, -6];
-            console.log(solution(arr));
-        </script>
-    </body>
-</html>
+<!-- 버블정렬은 뒤부터 정렬됨(index주의) -->
