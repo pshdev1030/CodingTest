@@ -6,8 +6,7 @@
     <body>
         <script>
             function solution(arr){
-                let tmp=new Array(...arr);
-                tmp=tmp.sort((a,b)=>a-b);
+                let tmp=new Array(...arr).sort((a,b)=>a-b);
                 let answer=[];
                 for (let i=0;i<arr.length;i++){
                     if(tmp[i]!==arr[i]) answer.push(i+1);
@@ -23,4 +22,5 @@
 
 <!--오름차순 정렬이 정상이므로 배열 하나 더 만들어서 정렬한다음 값 비교
 다만 배열의 복사과정에 대해서 공부할 필요가 있다.
-새 배열을 만들어야함.-->
+새 배열을 만들어야함.
+arr.slice(start=0,end=arr.length-1) 얕은복사-->

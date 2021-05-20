@@ -6,9 +6,14 @@
     <body>
         <script>
             function solution(meeting){
- 
+                let answer=[];
+                meeting.sort((a,b)=>a[1]-b[1]);
+                answer.push(meeting[0]);
+                for(let i=1;i<meeting.length;i++){
+                    if(answer[answer.length-1][1]<=meeting[i][0]) answer.push(meeting[i]);
+                }
+                return answer.length;
             }
-
             let arr=[[1, 4], [2, 3], [3, 5], [4, 6], [5, 7]];
             console.log(solution(arr));
         </script>
