@@ -6,11 +6,44 @@
     <body>
         <script>
             function solution(times){
- 
+                let stack=[];
+                let arr=[];
+                let tmp=max=0;
+                times.forEach((value)=>{
+                    arr.push([
+                        value[0],
+                        's'
+                    ]);
+                    arr.push([
+                        value[1],
+                        'e'
+                    ]);
+                })
+                arr.sort((a,b)=>{
+                    if(a[0]===b[0]) return a[1].charCodeAt()-b[1].charCodeAt();
+                    return a[0]-b[0];
+                })
+                console.log(arr);
+                for(let i=0;i<arr.length;i++){
+                    if(arr[i][1]==='s') {
+                        stack.push(arr[i]);
+                        tmp++;
+                        max=Math.max(tmp,max);
+                    }
+                    else{
+                        stack.shift();
+                        tmp=0;
+                    }
+                }
+                console.log(max);
             }
-
             let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
             console.log(solution(arr));
         </script>
     </body>
 </html>
+<!-- 두개의 이벤트로 분리한다음 정렬 -->
+<!-- https://poiemaweb.com/js-object -->
+<!-- 객체의 sort함수 -->
+<!-- 객체보단 배열처리 =>고차객체라 최적화되어있다. -->
+<!-- c와 달리 문자열 비교는 아스키코드로 바꾸어주고 해야한다. -->
