@@ -6,11 +6,34 @@
     <body>
         <script>
             function count(songs, capacity){
- 
+                let cnt=1,sum=0;
+                for(let x of songs){
+                    if(sum+x>capacity){
+                        cnt++;
+                        sum=x;
+                    }
+                    else sum+=x;
+                }
+                return cnt;
             }
+            // 재귀로 하려했는데 그냥 이래도 됨
             
             function solution(m, songs){
- 
+                let answer;
+                let lt=Math.max(...songs);
+                let rt=songs.reduce((a,b)=>a+b,0);
+                while(lt<=rt){
+                    let mid=parseInt((lt+rt)/2);
+                    if(count(songs,mid)<=m){
+                        answer=mid;
+                        rt=mid-1;
+                    }
+                    else{
+                        lt=mid+1;
+                    }
+                }
+
+                return answer;
             }
 
             let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -18,3 +41,14 @@
         </script>
     </body>
 </html>
+
+<!-- 
+결정알고리즘 최적화된 값을 계속 찾는다.
+투포인터로 이분탐색하며 범위를 구하는 알고리즘
+2장에 나눠진다면 당연히 세장으로도 나눠짐
+범위를 정해놓고 이분검색으로 푼다.
+dvd 하나의 최소용량은 songs의 최대값 ~song의 총합
+최소용량: 9~45
+Math.max(...arr)로 배열 최대 원소 찾기 가능
+-->
+

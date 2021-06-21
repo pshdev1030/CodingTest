@@ -23,19 +23,18 @@
                     if(a[0]===b[0]) return a[1].charCodeAt()-b[1].charCodeAt();
                     return a[0]-b[0];
                 })
-                console.log(arr);
                 for(let i=0;i<arr.length;i++){
                     if(arr[i][1]==='s') {
                         stack.push(arr[i]);
                         tmp++;
-                        max=Math.max(tmp,max);
                     }
                     else{
+                        max=Math.max(tmp,max);
                         stack.shift();
                         tmp=0;
                     }
                 }
-                console.log(max);
+                return max;
             }
             let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
             console.log(solution(arr));
