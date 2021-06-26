@@ -6,7 +6,20 @@
     <body>
         <script>
             function solution(c, arr){
-
+                let max=0;
+                function DFS(i,sum){
+                    if(i===arr.length){
+                        if(sum>max&&sum<=c){
+                            max=sum;
+                        }
+                    }
+                    else{
+                        DFS(i+1,sum+arr[i]);
+                        DFS(i+1,sum);
+                    }
+                }
+                DFS(0,0);
+                return max;
             }
 
             let arr=[81, 58, 42, 33, 61];
