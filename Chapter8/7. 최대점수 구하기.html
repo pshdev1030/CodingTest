@@ -6,7 +6,21 @@
     <body>
         <script>
             function solution(m, ps, pt){         
+                let max=0;
+                function DFS(i,sum,time){
+                    if(i>=ps.length){
+                        if(time<=m&&sum>max){
+                            max=sum;
+                        }
+                    }
+                    else{
+                        DFS(i+1,sum+ps[i],time+pt[i]);
+                        DFS(i+1,sum,time);
+                    }
 
+                }
+                DFS(0,0,0);
+                return max;
             }
 
             let ps=[10, 25, 15, 6, 7];
