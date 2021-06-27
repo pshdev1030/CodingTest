@@ -6,13 +6,23 @@
     <body>
         <script>
             function solution(n, m){
-                let answer=0;
-                for(let i=1;i<=n;i++){
-                    for(let j=1;j<=n;j++){
-                        console.log(i,j);
-                        answer++;
+                let answer=[];
+                let tmp=Array.from({length:m},()=>0);
+                
+                function DFS(L){
+                    if(L==m){
+                        answer.push(tmp.slice());
+                        // 얕은 복사본을 새로운 배열객체로 반한
+                    }
+                    else{
+                        for(let i=1;i<=n;i++){
+                            tmp[L]=i;
+                            DFS(L+1);
+                        }
                     }
                 }
+
+                DFS(0);
                 return answer;
             }
 
