@@ -6,7 +6,27 @@
     <body>
         <script>
             function solution(m, arr){
+                let answer=Number.MAX_SAFE_INTEGER;
+                let n=arr.length;
+                function DFS(value,sum,index){
+                    console.log(value,sum,index,answer);
+                    if(sum>m){
+                        return ;
+                    }
+                    else if(sum===m){
+                        if(index<answer){
+                            answer=index;
+                        }
+                    }
+                    else{
+                        for(let i=0;i<n;i++){
+                            DFS(arr[i],sum+arr[i],index+1);
+                        }
+                    }
+                }
 
+                DFS(0,0,0);
+                return answer;
             }
 
             let arr=[1, 2, 5];
