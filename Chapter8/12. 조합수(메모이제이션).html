@@ -6,10 +6,19 @@
     <body>
         <script>
             function solution(n, r){         
+                let array=Array.from(Array(n+1),()=>Array(n+1).fill(0));
+                function DFS(num,cnt){
+                    if(cnt===0||num===cnt) return 1;
+                    if(array[num][cnt]!==0) return array[num][cnt];
+                    else return array[num][cnt]=DFS(num-1,cnt-1)+DFS(num-1,cnt);
+                }
 
+                let answer=DFS(n,r);
+                return answer;
             }
 
-            console.log(solution(5, 3));
+            console.log(solution(33, 19));
         </script>
     </body>
 </html>
+<!-- 메모이제이션(DP) -->
