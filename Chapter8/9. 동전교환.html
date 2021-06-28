@@ -9,13 +9,10 @@
                 let answer=Number.MAX_SAFE_INTEGER;
                 let n=arr.length;
                 function DFS(sum,index){
-                    if(sum>m){
-                        return ;
-                    }
-                    else if(sum===m){
-                        if(index<answer){
-                            answer=index;
-                        }
+                    if(sum>m) return ;
+                    
+                    if(sum===m){
+                        answer=Math.min(answer,index);
                     }
                     else{
                         for(let i=0;i<n;i++){
@@ -23,7 +20,7 @@
                         }
                     }
                 }
-
+            
                 DFS(0,0);
                 return answer;
             }
