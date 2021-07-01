@@ -6,26 +6,20 @@
     <body>
         <script>
             function solution(n, m){
-                let arr=Array.from({length:n},(_,idx)=>idx+1);
-                let check=Array.from({length:n},()=>0);
-                let sum=0;
-                let tmp=new Array();
+                let sum =0;
                 function DFS(l,r){
-                    if(tmp.length==m){
-                        console.log(...tmp);
+                    console.log(l,r);
+                    if(r===n) return;
+                    if(l===m){
+                        sum++;
                     }
                     else{
-                        for(let i=0;i<n;i++){
-                            if(check[i]===0){
-                                check[i]=1;
-                                tmp.push(arr[i]);
-                                DFS(l,r+1);
-                            }
+                        for(let i=1;r<=n-r;r++){
+                            DFS(l+1,r+i);
                         }
                     }
                 }
-
-                DFS(0,0);
+                DFS(0,1);
             }
             console.log(solution(4, 2));
         </script>
