@@ -5,8 +5,19 @@
     </head>
     <body>
         <script>
-            function solution(){  
+            function solution(){
+                let answer="";
 
+                function BFS(n){
+                    if(n>7) return ;
+                    else{
+                        answer+=n+" ";
+                        BFS(n*2);
+                        BFS(n*2+1);
+                    }
+                }
+                BFS(1);
+                return answer;
             }
 
             console.log(solution());
