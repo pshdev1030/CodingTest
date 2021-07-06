@@ -7,25 +7,27 @@
         <script>
             function solution(s, e){  
                 let answer=0;
-                let ch=Array.from({length:10001}, ()=>0);
-                let dis=Array.from({length:10001}, ()=>0);
+                let check=Array.from({length:10001},()=>0);
                 let queue=[];
+                let level=0;
                 queue.push(s);
-                ch[s]=1;
-                dis[s]=0;
+                check[s]=1;
                 while(queue.length){
-                    let x=queue.shift();
-                    for(let nx of [x-1, x+1, x+5]){
-                        if(nx===e) return dis[x]+1;
-                        if(nx>0 && nx<=10000 && ch[nx]===0){
-                            ch[nx]=1;
-                            queue.push(nx);
-                            dis[nx]=dis[x]+1;
+                    let length=queue.length;
+                    for(let i=0;i<length;i++){
+                    let tmp=queue.shift();
+                    for(val of [tmp-1,tmp+1,tmp+5]){
+                        if(val===e) return level+1;
+                        if(val>0&&val<=10000&&check[val]===0){
+                            check[val]=1;
+                            queue.push(val);
                         }
                     }
                 }
-                return answer;
+                level++;
             }
+            return answer;
+        }
 
             console.log(solution(8, 3));
         </script>
@@ -34,7 +36,7 @@
 
 
 
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -68,4 +70,4 @@
             console.log(solution(5, 14));
         </script>
     </body>
-</html>
+</html> -->
