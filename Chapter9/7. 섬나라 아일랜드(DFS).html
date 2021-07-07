@@ -5,7 +5,7 @@
     </head>
     <body>
         <script>
-            function solution(board){  
+            function solution(board){
                 let answer=0;
                 let n=board.length;
                 let dx=[-1, -1, 0, 1, 1, 1, 0, -1];
@@ -13,10 +13,10 @@
 
                 function DFS(x,y){
                     board[x][y]=0;
-                    for(let i=0;i<8;i++){
-                        let curx=x+dx[i];
-                        let cury=x+dy[i];
-                        if(curx>=0&&cury>=0&&curx<n&&cury<n&&board[curx][curx]===1){
+                    for(let m=0;m<8;m++){
+                        let curx=x+dx[m];
+                        let cury=y+dy[m];
+                        if(curx>=0&&cury>=0&&curx<n&&cury<n&&board[curx][cury]===1){
                             DFS(curx,cury);
                         }
                     }
@@ -25,8 +25,8 @@
                 for(let i=0;i<n;i++){
                     for(let j=0;j<n;j++){
                         if(board[i][j]===1){
+                            console.log(i,j);
                             answer++;
-                            console.log();
                             DFS(i,j);
                         }
                     }
@@ -41,7 +41,6 @@
                      [1, 1, 0, 1, 1, 0, 0],
                      [1, 0, 0, 0, 1, 0, 0],
                      [1, 0, 1, 0, 1, 0, 0]];
-
             console.log(solution(arr));
         </script>
     </body>
