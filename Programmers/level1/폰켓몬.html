@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(nums) {
+            let n=nums.length/2;
+            let map= new Map();
+            let answer;
+            nums.forEach(ele=>{
+                if(map.has(ele)){
+                    map.set(ele,map.get(ele)+1);
+                }else{
+                    map.set(ele,1);
+                }
+            })
+            answer=map.size>=n ? n:map.size;
+            return answer;
+        }
+        console.log(solution([3,1,2,3]));
+        </script>
+    </body>
+</html>
+
+<!-- set... -->

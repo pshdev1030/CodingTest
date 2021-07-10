@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(progresses, speeds) {
+            let darr=progresses.reduce((acc,ele,i)=>{
+                acc.push(Math.ceil((100-progresses[i])/speeds[i]));
+                return acc;
+            },[]);
+            let ans=[];
+            let lp=0;
+            let i;
+            for(i=0;i<darr.length;i++){
+                if(darr[i]>darr[lp]){
+                    ans.push(i-lp);
+                    lp=i;
+                }
+            }
+            ans.push(i-lp);
+            return ans;
+        }
+        console.log(solution([93, 30, 55], [1, 30, 5]));
+        </script>
+    </body>
+</html>
+
+<!-- reduce를 통해 함수 값 초기화 참조해서 가능,리드미에 정리 
+splice 쓸 때 idx랑 혼동이 좀 온다 
+값을 한번에 업데이트 하지말고 하나씩 업데이트 하는 아이디어-->

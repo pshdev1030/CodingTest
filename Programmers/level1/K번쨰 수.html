@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(array, commands) {
+                console.log(array,commands);
+                var answer = [];
+                commands.forEach(ele=>{
+                    console.log(ele[0]-1,ele[1]-1);
+                    let tmp= array.slice().splice(ele[0]-1,ele[1]-ele[0]+1);
+                    tmp.sort((a,b)=>a-b);
+                    answer.push(tmp[ele[2]-1]);
+                });
+                return answer;
+            }
+            console.log(solution([1, 5, 2, 6, 3, 7, 4],[[2, 5, 3], [4, 4, 1], [1, 7, 3]]));
+        </script>
+    </body>
+</html>
