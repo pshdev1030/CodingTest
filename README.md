@@ -4,6 +4,7 @@ https://jsdev.kr/t/for-in-vs-for-of/2938
 set?
 
 map?
+has set get
 
 from split
 https://itskeleton.tistory.com/entry/Javascript-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%B0%B0%EC%97%B4%EB%A7%8C%EB%93%A4%EA%B8%B0-%EB%B0%B0%EC%97%B4-%EB%B6%84%ED%95%A0%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0-from

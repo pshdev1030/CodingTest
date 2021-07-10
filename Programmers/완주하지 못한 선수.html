@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+    function solution(participant, completion) {
+    let answer = '';
+    let map=new Map();
+    for(let i=0;i<completion.length;i++){
+        if(map.has(completion[i])){
+            map.set(completion[i],map.get(completion[i])+1);
+        }
+        else{
+            map.set(completion[i],1);
+        }
+    }
+    console.log(map);
+    for(let i=0;i<participant.length;i++){
+        if(!map.has(participant[i])){
+            answer+=`${participant[i]}`
+        }
+        map.set(participant[i],map.get(participant[i])-1);
+        if(map.get(participant[i])===0){
+            map.delete(participant[i]);
+        }
+    };
+    
+    return answer;
+    }
+    console.log(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]));
+        </script>
+    </body>
+</html>
+
+<!-- 맵을 사용하여 해결하였다. complition을 더하고 participant를 맵에서 탐색해 하나씩 뺏다 -->

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+    function solution(n,lost,reserve){
+        let answer=n-lost.length;
+        lost=lost.filter((loststu)=>{
+            let idx=reserve.findIndex(revstu=>revstu===loststu);
+            if(idx===-1) return loststu;
+            else{
+                reserve.splice(idx,1);
+                answer++;
+            }
+        });
+        lost.forEach(loststu=>{
+            let idx=reserve.findIndex(revstu=>loststu-revstu===1||loststu-revstu===-1);
+            if(idx !==-1){
+                reserve.splice(idx,1);
+                answer++;
+            }
+        });
+        return answer;
+    }
+    console.log(solution(5,[2,3,4],[1,3,5]));
+        </script>
+    </body>
+</html>
+
