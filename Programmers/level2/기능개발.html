@@ -30,3 +30,17 @@
 <!-- reduce를 통해 함수 값 초기화 참조해서 가능,리드미에 정리 
 splice 쓸 때 idx랑 혼동이 좀 온다 
 값을 한번에 업데이트 하지말고 하나씩 업데이트 하는 아이디어-->
+
+<!-- function solution(progresses, speeds) {
+    let answer = [0];
+    let days = progresses.map((progress, index) => Math.ceil((100 - progress) / speeds[index]));
+    let maxDay = days[0];
+
+    for(let i = 0, j = 0; i< days.length; i++){
+        if(days[i] <= maxDay) {
+            answer[j] += 1;
+        } else {
+            maxDay = days[i];
+            answer[++j] = 1;
+        }
+    } -->
