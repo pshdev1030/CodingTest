@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+function solution(w, h) {
+    let max=Math.max(w,h);
+    let ans=Number.MIN_SAFE_INTEGER;
+    for(let i=1;i<=max;i++){
+        if(w%i===0&&h%i===0&&ans<i) ans=i;
+    }
+    return w*h-(w+h-ans);
+}
+        console.log(solution(8,12));
+        </script>
+    </body>
+</html>
