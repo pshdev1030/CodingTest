@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(absolutes, signs) {
+            let ans=absolutes.reduce((acc,ele,idx)=>{
+                if(signs[idx]===true){
+                    return acc+=ele;
+                }
+                else{
+                    return acc-=ele;
+                }
+            },0);
+            return ans;
+        }
+            console.log(solution([4,7,12],[true,false,true]));
+        </script>
+    </body>
+</html>

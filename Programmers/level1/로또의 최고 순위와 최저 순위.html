@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(lottos, win_nums) {
+            let ans=lottos.reduce((acc,ele)=>{
+                if(win_nums.indexOf(ele)!==-1)acc++;
+                return acc;
+            },0)
+            let numOfZero=lottos.reduce((acc,ele)=>{
+                if(ele===0)acc++;
+                return acc;
+            },0)
+           let min=7-ans>=6?6:7-correct;
+           let max=min-numOfZero<1?1:min-zeros;
+           
+           return [max,min];
+        }
+        console.log(solution([0, 0, 0, 0, 0, 0],[38, 19, 20, 40, 15, 25]));
+        </script>
+    </body>
+</html>

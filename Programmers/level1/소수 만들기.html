@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(nums) {
+            let n=nums.length;
+            let ans=0;
+            function sosu(num){
+            if(num===1) return false;
+            for(let i=2;i<=Math.sqrt(num);i++){
+                if(num%i===0) return false;
+            }
+            return true;
+            }
+            for(let i=0;i<n;i++){
+                for(let j=i+1;j<n;j++){
+                    for(let k=j+1;k<n;k++){
+                      if(sosu(nums[i]+nums[j]+nums[k])) ans++;
+                    }
+                }
+            }
+            return ans;
+        }
+        console.log(solution([1,2,7,6,4]));
+        </script>
+    </body>
+</html>
