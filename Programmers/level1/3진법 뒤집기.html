@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(n) {
+            n=n.toString(3);
+            n=n.split('').reverse().join('');
+            let answer=0;
+            for(let i=n.length-1;i>=0;i--){
+                let tmp=Math.pow(3,n.length-i-1);
+                answer+=Number(n[i])*tmp;
+            }
+            return answer;
+        }
+        console.log(solution(45));
+        </script>
+    </body>
+</html>

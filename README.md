@@ -28,3 +28,11 @@ https://velog.io/@th0566/Javascript-%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC-%EA%B9
 https://medium.com/watcha/%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EC%8B%AC%EB%8F%84%EC%9E%88%EB%8A%94-%EC%9D%B4%EC%95%BC%EA%B8%B0-2f7d797e008a
 
 prototype
+
+진법 표현
+toString(n)  
+n진법에 해당하는 숫자로 변환된다.
+
+문자열 뒤집기
+n.split('').reverse().join('');  
+뒤집어진다.
