@@ -36,3 +36,65 @@ n진법에 해당하는 숫자로 변환된다.
 문자열 뒤집기
 n.split('').reverse().join('');  
 뒤집어진다.
+
+indexof,findIndex,find차이
+https://humahumahuma.tistory.com/81
+
+indexOf:배열에서 해당 값의 인덱스를 반환
+```javascript
+const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
+
+const index = superheroes.indexOf('토르');
+console.log(index);
+///2
+```
+
+findIndex:배열의 내용물이 객체일 때 해당 객체의 값으로 검색
+```javascript
+const todos = [
+  {
+    id : 1,
+    text : '빨래',
+    done: true
+  },
+  {
+    id: 2,
+    text: '숙제',
+    done: true
+  },
+  {
+    id : 3,
+    text: '개밥주기',
+    done: false
+  }
+];
+
+const index2 = todos.findIndex(todo => todo.id === 1);
+console.log(index2);
+// 0
+```
+
+find 주어진 조건에 해당하는 내용물을 통쨰로 반환한다.
+```javascript
+const todos = [
+  {
+    id : 1,
+    text : '빨래',
+    done: true
+  },
+  {
+    id: 2,
+    text: '숙제',
+    done: true
+  },
+  {
+    id : 3,
+    text: '개밥주기',
+    done: false
+  }
+];
+
+const index2 = todos.findIndex(todo => todo.id === 1);
+console.log(index2);
+// Object{id:1,text:'빨래',done:true}
+```
