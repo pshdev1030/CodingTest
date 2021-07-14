@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(arr, divisor) {
+            arr=arr.filter(ele=>ele%divisor===0).sort((a,b)=>a-b);
+            if(arr.length===0) return [-1];
+            else return arr;
+        }
+        console.log(solution([5, 9, 7, 10],5));
+        </script>
+    </body>
+</html>

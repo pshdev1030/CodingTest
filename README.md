@@ -98,3 +98,9 @@ const index2 = todos.findIndex(todo => todo.id === 1);
 console.log(index2);
 // Object{id:1,text:'빨래',done:true}
 ```
+string.localeCompare
+https://velog.io/@issac/JavaScript-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%82%B4-%EB%A7%88%EC%9D%8C%EB%8C%80%EB%A1%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0
+기준 문자열과 비교했을 때 비교 대상 문자열이 정렬상 전에 오는지, 후에 오는지 혹은 같은 순서에 배치되는지를 알려주는 숫자를 리턴하는 함수다.
+
+arr.sort
+문자열로 바꾸어서 값을 비교해서 작은값을 앞에 둠
