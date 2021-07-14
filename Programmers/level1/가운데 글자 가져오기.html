@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(s) {
+            let n=s.length;
+            let ans='';
+            let idx=Math.floor(s.length/2);
+            if(n%2===0){
+                ans+=s[idx-1]+s[idx];
+            }else{
+                ans+=s[idx];
+            }
+            return ans;
+        }
+        console.log(solution("abcde"));
+        console.log(solution("qwer"));
+        </script>
+    </body>
+</html>
