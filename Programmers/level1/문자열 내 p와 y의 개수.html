@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(s){
+            let ans;
+            let yidx=0;
+            let pidx=0;
+            s.split('').forEach(ele=>{
+                if(ele==='y'||ele==='Y'){
+                    yidx++;
+                }
+                else if(ele==='p'||ele==='P'){
+                    pidx++;
+                }
+            })
+            ans=pidx===yidx?true:false;
+            return ans;
+        }
+        console.log(solution("pPoooyY"));
+        </script>
+    </body>
+</html>
+
+<!-- utoUpperCase().split("P")로 나눔-->
+<!-- s.match(/p/ig).length == s.match(/y/ig).length; -->

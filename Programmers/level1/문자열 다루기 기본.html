@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(s) {
+            let array=s.split('');
+            console.log(array);
+            if(!(array.length===4||array.length===6)) return false;
+            return array.every(ele=>(ele>='0'&&ele<='9'));
+        }
+        console.log(solution("1234"));
+        </script>
+    </body>
+</html>
