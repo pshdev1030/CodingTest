@@ -124,3 +124,9 @@ Array.every()
 5제외한 5의배수
 7제외한 7의배수 제거한다.
 남은것들이 소수
+
+string.trim()
+문자열 양 끝의 공백 제거
+
+string.fromCharCode()
+아스키 to 문자

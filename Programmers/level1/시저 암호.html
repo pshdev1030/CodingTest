@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(s,n) {
+            let ans='';
+            for(let i=0;i<s.length;i++){
+                if(s[i]===' ') ans+=' ';
+                if(s[i]>='A'&&s[i]<='Z'){
+                    ans+=String.fromCharCode((s[i].charCodeAt()+n-65)%26+65)
+                }
+                else if(s[i]>='a'&&s[i]<='z'){
+                    ans+=String.fromCharCode((s[i].charCodeAt()+n-97)%26+97)
+                }
+            }
+            return ans;
+        }
+        console.log(solution("AB",1));
+        </script>
+    </body>
+</html>
+<!-- return str/1 -->

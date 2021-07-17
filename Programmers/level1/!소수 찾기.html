@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer=0;
+                let num=new Array(n+1);
+
+                for(let i=2;i<=n;i++){
+                    num[i]=i;
+                }
+                for(let j=2;j<=n;j++){
+                    if(num[j]===0) continue;
+                for(let k=j*2;k<=n;k+=j){
+                    num[k]=0;
+                }
+                }
+                for(let i=2;i<=n;i++){
+                    if(num[i]!==0) answer+=1;
+                }
+                return answer;
+            }
+        </script>
+    </body>
+</html>
+
+<!-- 시간초과.. 
+함수호출을 줄이고 그냥 깡으로.. 그리고 직접 값을 저장해서 배수를 제거하는 의 답안을 참조했다.
+https://ghost4551.tistory.com/85
+-->

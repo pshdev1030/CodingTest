@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(n) {
+            let numOfWord=Math.floor(n/2);
+            let endOfWord=n%2;
+            console.log(numOfWord,endOfWord);
+            let ans='';
+            for(let i=0;i<numOfWord;i++){
+                ans+="수박";
+            }
+            ans = endOfWord?ans+="수":ans;
+            return ans;
+        }
+        console.log(solution(3));
+        </script>
+    </body>
+</html>
