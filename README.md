@@ -130,3 +130,10 @@ string.trim()
 
 string.fromCharCode()
 아스키 to 문자
+
+string.padStart(num,char) string.padEnd(num,char)
+num만큼의 char를 문자열 앞 뒤로 붙이기
+
+DFS
+
+BFS

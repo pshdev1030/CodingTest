@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(x) {
+                let ans=x.toString().split('');
+                let hasard=ans.reduce((acc,ele)=>{
+                    return acc+=parseInt(ele);
+                },0)
+
+                return (x%hasard===0);
+            }
+            console.log(solution(10));
+        </script>
+    </body>
+</html>

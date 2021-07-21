@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(phone_number){
+                let number=phone_number.length-4;
+                let str=''.padStart(number,'*');
+                console.log(str);
+                let reg=RegExp(`.{${number}}`);
+                return phone_number.replace(reg,str);
+            }
+            console.log(solution("01033334444"));
+        </script>
+    </body>
+</html>

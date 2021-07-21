@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(maps) {
+            let yn=maps.length;
+            let xn=maps[0].length;
+            let ans=Number.MAX_SAFE_INTEGER;
+            
+            function DFS(y,x,sum){
+                if(y===0&&x===0){
+                    if(sum<ans) ans=sum;
+                }
+                else{
+                    for(let j=0;j<4;j++){
+                        let newx=x+nextx[j];
+                        let newy=y+nexty[j];
+                        if(newx>=0&&newy>=0&&newx<xn&&newy<yn){
+                            if(maps[newy][newx]===1){
+                            maps[y][x]=0;
+                            DFS(newy,newx,sum+1);
+                            maps[y][x]=1;
+                            }
+                        }
+                    }
+                }
+            }
+            let x=xn-1;
+            let y=yn-1;
+            let nexty=[0,-1,0,+1];
+            let nextx=[-1,0,+1,0];
+            DFS(y,x,1);
+            return ans===Number.MAX_SAFE_INTEGER? -1:ans;
+        }
+        console.log(solution([[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]));
+        </script>
+    </body>
+</html>

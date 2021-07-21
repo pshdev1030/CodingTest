@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let k=500;
+                while(k--){
+                    if(n===1) break;
+                    if(n%2===0) n=n/2;
+                    else n=n*3+1;
+                }
+                return k===-1?-1:500-k-1;
+            }
+            console.log(solution(626331));
+        </script>
+    </body>
+</html>
