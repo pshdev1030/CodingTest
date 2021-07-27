@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(numbers) {
+            let ans=Array.from({length:101});
+            for(let i=2;i<ans.length;i++){
+                ans[i]=i;
+            }
+            for(let i=2;i*i<ans.length;i++){
+                if(ans[i]===0) continue;
+
+                for(let j=i+i ; j<ans.length; j+=i){
+                    ans[j]=0;
+                }
+            }
+            console.log(ans);
+        }
+        console.log(solution("17"));
+        </script>
+    </body>
+</html>

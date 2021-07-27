@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(priorities, location) {
+            let ans=0;
+            let cnt=0;
+            let my=location;
+            while(priorities.length){
+                let tmp=priorities.shift();
+                if(priorities.some(a=>a>tmp)){
+                    priorities.push(tmp);
+                }
+                else{
+                    cnt++;
+                    if(my===0){
+                        return cnt;
+                    }
+                }
+                my--;
+                if(my===-1){
+                    my=priorities.length-1;
+                }
+            }
+            return answer;
+
+        }
+        console.log(solution([2, 1, 3, 2],2));
+        </script>
+    </body>
+</html>
