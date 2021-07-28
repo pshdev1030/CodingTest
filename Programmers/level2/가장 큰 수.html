@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(numbers) {
+            console.log(numbers);
+            numbers=numbers.sort((a,b)=>{
+                let as=a.toString();
+                let bs=b.toString();
+                if(Number(as+bs)>Number(bs+as)) return -1;
+            }).join('');
+            console.log(numbers[0]);
+            return numbers[0]==='0'? '0':numbers;
+        }
+        console.log(solution([3, 30, 34, 5, 9]));
+        </script>
+    </body>
+</html>
