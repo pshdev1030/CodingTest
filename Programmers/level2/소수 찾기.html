@@ -5,20 +5,40 @@
     </head>
     <body>
         <script>
-        function solution(numbers) {
-            let ans=Array.from({length:101});
-            for(let i=2;i<ans.length;i++){
-                ans[i]=i;
-            }
-            for(let i=2;i*i<ans.length;i++){
-                if(ans[i]===0) continue;
-
-                for(let j=i+i ; j<ans.length; j+=i){
-                    ans[j]=0;
-                }
-            }
-            console.log(ans);
+    const solution = (numbers) => {
+        let answer = [];
+        
+        for(let i=1; i<numbers.length+1;i++){
+            getPermutations([...numbers],i).forEach(v => isPrime(parseInt(v)) ? answer.push(parseInt(v)) : answer);
         }
+        
+        console.log([...new Set(answer)])
+        return [...new Set(answer)].length;
+    }
+
+
+    const isPrime = (number) => {
+        if(number <= 1) return false;
+        if(number == 2) return true;
+        for(let i=2; i<=Math.ceil(Math.sqrt(number));i++) {
+            if(number % i === 0) return false;
+        }
+        return true;
+    }
+
+    const getPermutations = (arr, selectNumber) => {
+        const results = [];
+        if(selectNumber === 1) return arr.map((value) => value);
+        
+        arr.forEach((fixed, index, origin) => {
+            const rest = [...origin.slice(0, index), ...origin.slice(index+1)];
+            const permutations = getPermutations(rest, selectNumber -1 );
+            const attached = permutations.map((permutation) => [fixed, ...permutation].join(''));
+            results.push(...attached);
+        });
+
+        return results;
+    };
         console.log(solution("17"));
         </script>
     </body>
