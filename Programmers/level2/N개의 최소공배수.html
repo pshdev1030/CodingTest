@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(arr) {
+            arr=arr.sort((a,b)=>a-b);
+            for(let i=1;;i++){
+                if(arr.every(ele=>i%ele===0)){
+                    return i;
+                }
+            }
+        }
+        console.log(solution([14,6,8,2]));
+        </script>
+    </body>
+</html>

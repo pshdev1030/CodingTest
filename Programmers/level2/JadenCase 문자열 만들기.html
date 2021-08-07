@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(s) {
+            let ans=s.split(' ');
+            ans=ans.map(ele=>ele[0]===''?'':ele.toLowerCase());
+            ans=ans.map(str=>str===''?'':str.replace(str[0],str[0].toUpperCase()))
+            ans=ans.join(' ');
+            return ans;
+        }
+        console.log(solution(" 3people unFollowed me"));
+        </script>
+    </body>
+</html>
