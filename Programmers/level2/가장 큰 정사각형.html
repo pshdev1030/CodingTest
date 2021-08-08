@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(board) {
+            let x=board[0].length;
+            let y=board.length;
+            let ans=0;
+            if(x<2||y<2) return 1;
+            for(let i=1;i<y;i++){
+                for(let j=1;j<x;j++){
+                        if(board[i][j]>0){
+                            board[i][j]=Math.min(board[i-1][j-1],board[i][j-1],board[i-1][j])+1;
+                            if(ans<board[i][j]) ans=board[i][j];
+                        }
+                    }
+                }
+                return ans*ans;
+            }
+        console.log(solution([[0,0,1,1],[1,1,1,1]]));
+        </script>
+    </body>
+</html>
+<!-- 다시 한 번 풀어보기 (dp) -->
