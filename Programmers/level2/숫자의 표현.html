@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(n) {
+            let ans=0;
+            let arr=Array.from({length:n+1});
+            arr=arr.reduce((acc,ele,idx)=>{
+                acc.push(idx);
+                return acc;
+            },[])
+            console.log(arr);
+            let rt=1;
+            for(let lt=1;lt<=n;){
+                let sum=0;
+                for(let i=lt;i<=rt;i++){
+                    sum+=arr[i];
+                }
+                if(sum<n) rt++;
+                else if(sum>n) lt++;
+                else if(sum===n) {
+                    lt++;
+                    rt=lt+1;
+                    ans++;
+                }
+            }
+            return ans;
+        }
+        console.log(solution(15))
+        </script>
+    </body>
+</html>

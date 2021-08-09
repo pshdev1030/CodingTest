@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function countone(number){
+            let numofone=0;
+            let strn=number.toString(2);
+            for(let x of strn){
+                if(x==='1') numofone++;
+            }
+            return numofone;
+        }
+        function solution(n){
+            let numofone=countone(n);
+            for(let i=n+1;;i++){
+                if(countone(i)===numofone) return i;
+            }
+
+        }
+        console.log(solution(78))
+        </script>
+    </body>
+</html>
