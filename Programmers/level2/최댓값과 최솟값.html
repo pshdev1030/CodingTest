@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(s) {
+            s=s.split(' ');
+            let max=Number.MIN_SAFE_INTEGER;
+            let min=Number.MAX_SAFE_INTEGER;
+            for(let i=0;i<s.length;i++){
+                const value=Number(s[i]);
+                if(value>max) max=value;
+                if(value<min) min=value;
+            }
+            let answer=String(min +' '+ max);
+            return answer;
+        }
+        console.log(solution("-1 -2 -3 -4"));
+        </script>
+    </body>
+</html>
+<!-- max(...arr) 가능 -->
