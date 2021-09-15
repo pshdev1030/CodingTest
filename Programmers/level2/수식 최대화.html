@@ -27,23 +27,21 @@
                                 slicenum.splice(k+1,1);
                                 sliceope.splice(k,1);
                                 k--;
-                            }
-                            else if(sliceope[k]==='-'){
+                            }else if(sliceope[k]==='-'){
                                 slicenum[k]-=slicenum[k+1];
                                 slicenum.splice(k+1,1);
                                 sliceope.splice(k,1);
                                 k--;
-
                             }
                         }
                     }
-                    if(Math.abs(slicenum[0])>=max){
+                }
+                if(Math.abs(slicenum[0])>=max){
                         max=Math.abs(slicenum[0]);
-                    }
                 }
             }
             return max;
-        }
+        };
         console.log(solution("100-200*300-500+20"));
         </script>
     </body>
