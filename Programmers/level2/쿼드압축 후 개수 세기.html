@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(arrf) {
+            let num_of_zero=0;
+            let num_of_one=1;
+            
+            function makearr(start,end,array){
+                let temparr=[]
+                for(let i=start;i<end;i++){
+                let tmp=[]
+                for(let j=start;j<end;j++){
+                    tmp.push(array[i][j]);
+                }
+                temparr.push(tmp);
+                }
+                return temparr;
+            }
+            function quad(start,end,array){
+                let val=array[0][0];
+                for(let i=start;i<end;i++){
+                for(let j=start;j<end;j++){
+                    if(array[i][j]!==val) return false;
+                }
+                }
+                return true;
+            }
+
+            function DFS(start,end,array){
+                if(size===1||quad(start,end,array)){
+                    if(array[0][0]===1){
+                        num_of_one=num_of_one+size*size;
+                    }
+                    else if(array[0][0]===0){
+                        num_of_zero=num_of_zero+size*size;
+                    }
+                }
+            }
+            let len=arrf[0].length;
+            for(let i=0;i<len;i=i+len/2){
+                for(let j=0;j<len;j=j+len/2){
+                }
+            }
+        }
+        console.log(solution([
+            [1,1,0,0],
+            [1,0,0,0],
+            [1,0,0,1],
+            [1,1,1,1]
+        ]));
+        </script>
+    </body>
+</html>
