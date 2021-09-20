@@ -5,46 +5,31 @@
     </head>
     <body>
         <script>
-        function solution(arrf) {
+        function solution(arr) {
             let num_of_zero=0;
-            let num_of_one=1;
-            
-            function makearr(start,end,array){
-                let temparr=[]
-                for(let i=start;i<end;i++){
-                let tmp=[]
-                for(let j=start;j<end;j++){
-                    tmp.push(array[i][j]);
+            let num_of_one=0;
+
+            function DFS(x1,x2,y1,y2){
+                let prevVal=arr[y1][x1];
+                for(let i=y1;i<y2;i++){
+                    for(let j=x1;j<x2;j++){
+                        if(arr[i][j]!==prevVal){
+                            DFS(x1,(x1+x2)/2,y1,(y1+y2)/2);
+                            DFS((x1+x2)/2,x2,y1,(y1+y2)/2);
+                            DFS(x1,(x1+x2)/2,(y1+y2)/2,y2);
+                            DFS((x1+x2)/2,x2,(y1+y2)/2,y2);
+                            
+                            return;
+                        }
+                        prevVal=arr[i][j];
+                    }
                 }
-                temparr.push(tmp);
-                }
-                return temparr;
-            }
-            function quad(start,end,array){
-                let val=array[0][0];
-                for(let i=start;i<end;i++){
-                for(let j=start;j<end;j++){
-                    if(array[i][j]!==val) return false;
-                }
-                }
-                return true;
+                if(arr[y1][x1]===0) num_of_zero++
+                else num_of_one++;
             }
 
-            function DFS(start,end,array){
-                if(size===1||quad(start,end,array)){
-                    if(array[0][0]===1){
-                        num_of_one=num_of_one+size*size;
-                    }
-                    else if(array[0][0]===0){
-                        num_of_zero=num_of_zero+size*size;
-                    }
-                }
-            }
-            let len=arrf[0].length;
-            for(let i=0;i<len;i=i+len/2){
-                for(let j=0;j<len;j=j+len/2){
-                }
-            }
+            DFS(0,arr.length,0,arr.length);
+            return [num_of_zero,num_of_one];
         }
         console.log(solution([
             [1,1,0,0],
