@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function solution(dirs) {
+      let x = 0;
+      let y = 0;
+      let stack = [];
+      let ans = 0;
+      for (let i = 0; i < dirs.length; i++) {
+        let cur = ` ${x} ${y}`;
+        let next = "";
+        let nextx;
+        let nexty;
+        if (dirs[i] === "U") {
+          nextx = x;
+          nexty = y + 1;
+          next = ` ${nextx} ${nexty}`;
+        } else if (dirs[i] === "L") {
+          nextx = x - 1;
+          nexty = y;
+          next = ` ${nextx} ${nexty}`;
+        } else if (dirs[i] === "R") {
+          nextx = x + 1;
+          nexty = y;
+          next = ` ${nextx} ${nexty}`;
+        } else if (dirs[i] === "D") {
+          nextx = x;
+          nexty = y - 1;
+          next = ` ${nextx} ${nexty}`;
+        }
+        let val = cur + next;
+
+        if (nextx <= 5 && nextx >= -5 && nexty <= 5 && nexty >= -5) {
+          console.log(i, val);
+          if (stack.findIndex((ele) => ele === val) === -1) ans++;
+          stack.push(cur + next);
+          stack.push(next + cur);
+          x = nextx;
+          y = nexty;
+        }
+      }
+      console.log(stack);
+      return ans;
+    }
+    console.log(solution("LULLLLLLU"));
+  </script>
+</html>
