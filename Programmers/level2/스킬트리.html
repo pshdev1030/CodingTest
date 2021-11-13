@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function solution(skill, skill_trees) {
+      let ans = 0;
+      function include(str) {
+        let ans = "";
+        for (let i = 0; i < str.length; i++) {
+          if (skill.includes(str[i])) ans += str[i];
+        }
+        return ans;
+      }
+      for (let i = 0; i < skill_trees.length; i++) {
+        let tmp = include(skill_trees[i]);
+        if (skill.includes(tmp) && skill.indexOf(tmp) === 0) ans++;
+      }
+      return ans;
+    }
+    console.log(solution("CBD", ["BACDE", "CBADF", "AECB", "BDA"]));
+  </script>
+</html>
